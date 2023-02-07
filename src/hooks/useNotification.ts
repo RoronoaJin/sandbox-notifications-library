@@ -20,7 +20,7 @@ export function useNotification() {
   };
 
   const markAsRead = async (notificationID: string) => {
-    await notificationCenter.setNotficationAsRead(notificationID);
+    await notificationCenter.markNotificationAsRead(notificationID);
     fetchNotification();
   };
 
