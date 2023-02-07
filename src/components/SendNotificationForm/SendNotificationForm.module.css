@@ -1,0 +1,59 @@
+textarea {
+  background-color: #202134;
+  border-radius: 5px;
+  color: #d4d4d8;
+  outline: none;
+  resize: none;
+
+  font-size: 1rem;
+
+  height: 40vh;
+
+  padding: 1em;
+  margin: 0.2em;
+}
+
+textarea::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+textarea::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+textarea::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #484e8a;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+textarea::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.formContainer {
+  background-color: #282a43;
+  border-radius: 10px;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  width: 75vw;
+
+  margin: 1em;
+  padding: 0.5em;
+
+  overflow-y: auto;
+}
+
+@media (max-width: 991.98px) {
+  .formContainer {
+    flex: 1 1 350px;
+  }
+
+  textarea {
+    font-size: 1rem;
+    height: 10vh;
+  }
+}

@@ -1,0 +1,23 @@
+.btnsContainer {
+  display: flex;
+  flex-flow: wrap;
+  align-content: space-around;
+
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  padding: 0.5em;
+
+  border-radius: 10px;
+  background-color: #27293d;
+
+  width: 25vw;
+  max-height: 100vh;
+}
+
+@media (max-width: 991.98px) {
+  .btnsContainer {
+    flex: 1 1 350px;
+    margin-right: 1em;
+  }
+}

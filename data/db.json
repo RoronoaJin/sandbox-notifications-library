@@ -1,0 +1,22 @@
+{
+  "notifications": [
+    {
+      "id": "4672259c-dd49-4109-907c-6c333fc3ed79",
+      "data": "Welcome to Notifications Sandbox!",
+      "sender": "defaultSender",
+      "createdAt": 1675786489805
+    },
+    {
+      "id": "0eb4bf72-6fdf-4475-b99e-a94ca98f49b8",
+      "data": "This is the second notification!",
+      "sender": "defaultSender",
+      "createdAt": 1675786499832
+    },
+    {
+      "id": "9f20f98d-b9fd-4530-9767-8944906e3453",
+      "data": "This is a remote notification",
+      "sender": "App_Sender",
+      "createdAt": 1675786525915
+    }
+  ]
+}
