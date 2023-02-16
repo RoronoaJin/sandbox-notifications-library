@@ -26,6 +26,12 @@
       "data": "This Notification isn't mark as read, try it!",
       "sender": "defaultSender",
       "createdAt": 1675811325066
+    },
+    {
+      "id": "ddb3a1fb-f5aa-4ba2-90d5-062a2f7aab52",
+      "data": "ciao",
+      "sender": "defaultSender",
+      "createdAt": 1676388312165
     }
   ]
 }

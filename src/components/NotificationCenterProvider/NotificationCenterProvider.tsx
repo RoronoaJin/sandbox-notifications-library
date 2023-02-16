@@ -1,6 +1,5 @@
-import React, { createContext, PropsWithChildren } from "react";
-import { NotificationCenter } from "notifications-library";
-import { NotificationListProvider } from "../NotificationListProvider/NotificationListProvider";
+import { createContext, PropsWithChildren, useState } from "react";
+import { Notification, NotificationCenter } from "notifications-library";
 
 const notificationCenter = new NotificationCenter();
 
@@ -10,18 +9,33 @@ const configuration = {
   updateUrl: "http://localhost:3001/notifications",
 };
 
-export const NotificationContext = createContext<{
+interface NotificationCenterContextProps {
   notificationCenter: NotificationCenter;
-}>({ notificationCenter });
+  notificationsList: Notification[];
+  setNotificationsList: React.Dispatch<React.SetStateAction<Notification[]>>;
+}
+
+export const NotificationCenterContext =
+  createContext<NotificationCenterContextProps>({
+    notificationCenter,
+    notificationsList: [],
+    setNotificationsList: () => {},
+  });
 
 export const NotificationCenterProvider: React.FC<PropsWithChildren> = ({
   children,
 }) => {
+  const [notificationsList, setNotificationsList] = useState<Notification[]>(
+    []
+  );
+
   notificationCenter.setConfig(configuration);
 
   return (
-    <NotificationContext.Provider value={{ notificationCenter }}>
-      <NotificationListProvider>{children}</NotificationListProvider>
-    </NotificationContext.Provider>
+    <NotificationCenterContext.Provider
+      value={{ notificationCenter, notificationsList, setNotificationsList }}
+    >
+      {children}
+    </NotificationCenterContext.Provider>
   );
 };

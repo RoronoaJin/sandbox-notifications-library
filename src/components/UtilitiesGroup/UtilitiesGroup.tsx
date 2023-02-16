@@ -8,14 +8,14 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import styles from "./UtilitiesGroup.module.css";
 import btn from "../Button/Button.module.css";
 
-export function UtilitiesButtonGroup() {
-  const { getAllNotifications, markAllAsRead, deleteAllNotifications } =
+export function UtilitiesGroup() {
+  const { fetchNotifications, markAllAsRead, deleteAllNotifications } =
     useNotification();
 
   const [showForm, setShowForm] = useState(false);
 
   const handleGetAllNotifications = async () => {
-    await getAllNotifications();
+    await fetchNotifications();
   };
 
   const handleDeleteAllNotifications = async () => {
@@ -27,25 +27,29 @@ export function UtilitiesButtonGroup() {
   };
 
   const handleFormDisplay = () => {
-    setShowForm(!showForm);
+    setShowForm((prev) => !prev);
   };
 
   return (
     <>
       <div className={styles.btnsContainer}>
         <Button className={btn.utilBtn} onClick={handleGetAllNotifications}>
+          <p>Get</p>
           <FiDownload />
         </Button>
         <Button className={btn.utilBtn} onClick={handleFormDisplay}>
+          <p>Send</p>
           <FiSend />
         </Button>
         <Button
           className={btn.utilBtn}
           onClick={handleMarkAllNotificationsAsRead}
         >
+          <p>ReadAll</p>
           <IoCheckmarkDoneSharp />
         </Button>
         <Button className={btn.utilBtn} onClick={handleDeleteAllNotifications}>
+          <p>DeleteAll</p>
           <RiDeleteBinLine />
         </Button>
       </div>

@@ -1,6 +1,6 @@
 import { NotificationsList } from "./components/NotificationsList/NotificationsList";
 import { NotificationCenterProvider } from "./components/NotificationCenterProvider/NotificationCenterProvider";
-import { UtilitiesButtonGroup } from "./components/UtilitiesGroup/UtilitiesGroup";
+import { UtilitiesGroup } from "./components/UtilitiesGroup/UtilitiesGroup";
 import "./App.css";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
           <NotificationsList />
         </div>
         <div className="utils-container">
-          <UtilitiesButtonGroup />
+          <UtilitiesGroup />
         </div>
       </div>
     </NotificationCenterProvider>

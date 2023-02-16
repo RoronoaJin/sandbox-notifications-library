@@ -4,11 +4,12 @@ import { Notification } from "notifications-library";
 import { NotificationListItem } from "../NotificationListItem/NotificationListItem";
 import { NotficationDataContainer } from "../NotificationDataContainer/NotificationDataContainer";
 import style from "./NotificationsList.module.css";
+import { TEST_ID } from "../../constants/testId";
 
 export function NotificationsList() {
   const {
     notificationsList,
-    fetchNotification,
+    fetchNotifications,
     deleteNotification,
     markAsRead,
   } = useNotification();
@@ -20,8 +21,8 @@ export function NotificationsList() {
     useState<Notification>();
 
   useEffect(() => {
-    fetchNotification();
-  }, [fetchNotification]);
+    fetchNotifications();
+  }, [fetchNotifications]);
 
   useEffect(() => {
     if (selectedNotificationId) {
@@ -38,6 +39,7 @@ export function NotificationsList() {
 
   const handleNotificationDelete = async (id: string) => {
     await deleteNotification(id);
+    await fetchNotifications();
   };
 
   const handleNotificationMarkAsRead = async (id: string) => {
@@ -47,7 +49,7 @@ export function NotificationsList() {
   return (
     <>
       <div className={style.listContainer}>
-        <h4>Notifications</h4>
+        <h4 data-testid={TEST_ID.NOTIFICATION_HEADER}>Notifications</h4>
         {notificationsList.map(({ id, data }) => (
           <NotificationListItem
             key={id}

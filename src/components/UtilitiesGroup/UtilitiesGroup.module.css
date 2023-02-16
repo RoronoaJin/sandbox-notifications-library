@@ -1,3 +1,8 @@
+p {
+  font-size: 0.7rem;
+  padding: 0.25em;
+}
+
 .btnsContainer {
   display: flex;
   flex-flow: wrap;
