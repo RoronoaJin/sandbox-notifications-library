@@ -2,7 +2,7 @@
 
 This project is created to use the notifications-library
 
-## What can you do
+## What you can do
 
 In this sandbox, you can:
 

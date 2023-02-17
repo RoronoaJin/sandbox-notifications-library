@@ -1,7 +1,10 @@
 export enum TEST_ID {
   BUTTON = "btn",
 
+  DISPLAYED_NOTIFICATION_CONTAINER = "displayedNotificationDiv",
+
   NOTIFICATION_ITEM = "notificationItem",
+  SELECTED_NOTIFICATION_BTN = "selectedNotification",
   MARK_AS_READ_BUTTON = "markAsReadBtn",
   DELETE_BUTTON = "deleteBtn",
 

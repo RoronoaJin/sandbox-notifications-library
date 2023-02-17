@@ -1,4 +1,5 @@
 import { Notification } from "notifications-library";
+import { TEST_ID } from "../../constants/testId";
 import styles from "./NotficationDataContainer.module.css";
 
 type Props = {
@@ -9,7 +10,10 @@ export const NotficationDataContainer: React.FC<Props> = ({
   displayedNotification,
 }) => {
   return (
-    <div className={styles.dataContainer}>
+    <div
+      className={styles.dataContainer}
+      data-testid={TEST_ID.DISPLAYED_NOTIFICATION_CONTAINER}
+    >
       <span>
         <h5>ID:</h5> {displayedNotification.id}
       </span>

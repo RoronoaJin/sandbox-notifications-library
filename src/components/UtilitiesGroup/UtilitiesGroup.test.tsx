@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { UtilitiesGroup } from "./UtilitiesGroup";
 import * as UseNotification from "../../hooks/useNotification";
+import { TEST_ID } from "../../constants/testId";
 
 describe("UtilitiesGroup componenet", () => {
   test("It should render all buttons", () => {
@@ -25,8 +26,8 @@ describe("UtilitiesGroup componenet", () => {
 
     render(<UtilitiesGroup />);
 
-    const getButton = screen.getByText("Get");
-    fireEvent.click(getButton);
+    const getBtn = screen.getByText("Get");
+    fireEvent.click(getBtn);
 
     expect(mockFetchNotifications).toHaveBeenCalled();
   });
@@ -40,8 +41,8 @@ describe("UtilitiesGroup componenet", () => {
 
     render(<UtilitiesGroup />);
 
-    const markAsReadButton = screen.getByText("ReadAll");
-    fireEvent.click(markAsReadButton);
+    const markAsReadBtn = screen.getByText("ReadAll");
+    fireEvent.click(markAsReadBtn);
 
     expect(mockMarkAllAsRead).toHaveBeenCalled();
   });
@@ -54,9 +55,25 @@ describe("UtilitiesGroup componenet", () => {
     });
     render(<UtilitiesGroup />);
 
-    const deleteAllButton = screen.getByText("DeleteAll");
-    fireEvent.click(deleteAllButton);
+    const deleteAllBtn = screen.getByText("DeleteAll");
+    fireEvent.click(deleteAllBtn);
 
     expect(mockDeleteAllNotifications).toHaveBeenCalled();
+  });
+
+  test("Clicking the 'send' button should display the form", () => {
+    // @ts-expect-error
+    jest.spyOn(UseNotification, "useNotification").mockReturnValue({
+      fetchNotifications: jest.fn(),
+    });
+    render(<UtilitiesGroup />);
+
+    const sendBtn = screen.getByText("Send");
+
+    fireEvent.click(sendBtn);
+
+    const form = screen.getByTestId(TEST_ID.SEND_NOTIFICATION_FORM);
+
+    expect(form).toBeInTheDocument();
   });
 });

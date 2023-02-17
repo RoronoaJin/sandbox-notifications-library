@@ -22,7 +22,11 @@ export const NotificationListItem: React.FC<Props> = ({
 }) => {
   return (
     <li data-testid={TEST_ID.NOTIFICATION_ITEM} className={style.listIndex}>
-      <Button className={btn.notificationTitleBtn} onClick={() => onSelect(id)}>
+      <Button
+        className={btn.notificationTitleBtn}
+        data-testid={TEST_ID.SELECTED_NOTIFICATION_BTN}
+        onClick={() => onSelect(id)}
+      >
         {data}
       </Button>
       <Button
